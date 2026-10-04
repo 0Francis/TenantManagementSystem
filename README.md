@@ -29,7 +29,7 @@ The app starts as a plain form wired with **View Binding**, then moves display l
 | Target SDK | 37 |
 | IDE | Android Studio |
 
-## How it works
+## How it works (we ain't done yet by the way)
 
 ```
 View Binding (Step 1):   Kotlin  --builds the text-->  TextView
