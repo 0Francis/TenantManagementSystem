@@ -29,7 +29,6 @@ The app starts as a plain form wired with **View Binding**, then moves display l
 | Target SDK | 37 |
 | IDE | Android Studio |
 
-## How it works
 
 ```
 View Binding (Step 1):   Kotlin  --builds the text-->  TextView
@@ -114,19 +113,9 @@ Rent paid: KSh 25000
 - Data Binding layouts, `<variable>` declarations and `@{}` expressions
 - Null-safe binding with hint text as the empty state
 
-## Roadmap
-
-- [ ] View Tenants screen with a `RecyclerView`
-- [ ] Navigation between screens (Register, Login, Dashboard, Add Tenant, View Tenants)
-- [ ] Store rent as a numeric type for totals on the dashboard
-- [ ] Persist tenants (e.g. Room database)
-- [ ] Validate phone and rent fields, not just name
-
 ## Author
 
 **Francis** ([@0Francis](https://github.com/0Francis))
-BBIT, Strathmore University
 
 ## Acknowledgements
-
-Based on the *Lesson 6 Practical: Building the Tenant Management Screen* guide, School of Computing and Engineering Sciences, Strathmore University.
+Lecturer: Madam Salome and Strathmore University
