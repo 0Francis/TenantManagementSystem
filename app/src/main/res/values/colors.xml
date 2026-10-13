@@ -2,4 +2,14 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="royal_navy">#14213D</color>
+    <color name="royal_navy_dark">#0B1426</color>
+    <color name="royal_gold">#B8963E</color>
+    <color name="royal_gold_light">#D4B96A</color>
+    <color name="ivory">#FAF6EE</color>
+    <color name="ink">#1C1C28</color>
+    <color name="ink_muted">#6B6558</color>
+    <color name="line">#E3D9C0</color>
+    <color name="burgundy">#8B1E2D</color>
 </resources>

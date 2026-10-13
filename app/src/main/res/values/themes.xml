@@ -1,9 +1,9 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.TenantManagementSystem" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+<resources>
+    <style name="Theme.TenantManagementSystem" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/royal_navy</item>
+        <item name="android:windowBackground">@color/ivory</item>
+        <item name="android:statusBarColor">@color/ivory</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorHint">#9A927F</item>
     </style>
-
-    <style name="Theme.TenantManagementSystem" parent="Base.Theme.TenantManagementSystem" />
 </resources>
