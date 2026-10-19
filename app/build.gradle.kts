@@ -1,7 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
+    id("androidx.navigation.safeargs.kotlin")
 }
-
 android {
     namespace = "com.example.tenantmanagementsystem190050"
     compileSdk {
@@ -38,6 +38,9 @@ android {
 }
 
 dependencies {
+    //added the first two to help in fragmentation and UI
+    implementation("androidx.navigation:navigation-fragment-ktx:2.9.8")
+    implementation("androidx.navigation:navigation-ui-ktx:2.9.8")
     implementation(libs.androidx.activity.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.constraintlayout)

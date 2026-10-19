@@ -1,4 +1,5 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
 plugins {
     alias(libs.plugins.android.application) apply false
+    // Safe Args: To generate classes for passing my data between screens hehe
+    id("androidx.navigation.safeargs.kotlin") version "2.9.8" apply false
 }
