@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp">
+
+    <TextView
+        android:id="@+id/welcomeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome back"
+        android:fontFamily="serif"
+        android:textStyle="bold"
+        android:textSize="28sp"
+        android:textColor="@color/royal_navy"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <View
+        android:id="@+id/dividerView"
+        android:layout_width="48dp"
+        android:layout_height="2dp"
+        android:layout_marginStart="156dp"
+        android:layout_marginTop="48dp"
+        android:background="@color/royal_gold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/welcomeTextView" />
+
+    <TextView
+        android:id="@+id/overviewTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:fontFamily="serif"
+        android:text="Here is an overview of your property"
+        android:textColor="@color/ink_muted"
+        android:textSize="15sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dividerView" />
+
+    <TextView
+        android:id="@+id/totalRentTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/bg_card"
+        android:gravity="center"
+        android:padding="20dp"
+        android:text="Total rent\nKSh 0"
+        android:textColor="@color/royal_navy"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@id/tenantCountTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tenantCountTextView"
+        app:layout_constraintTop_toTopOf="@id/tenantCountTextView"
+        app:layout_constraintVertical_bias="0.475" />
+
+    <TextView
+        android:id="@+id/tenantCountTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/bg_card"
+        android:gravity="center"
+        android:padding="20dp"
+        android:text="Tenants\n0"
+        android:textColor="@color/royal_navy"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@id/totalRentTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/overviewTextView" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/addTenantButton"
+        android:layout_width="238dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="48dp"
+        android:letterSpacing="0.15"
+        android:text="ADD TENANT"
+        android:textColor="@color/royal_gold_light"
+        android:textStyle="bold"
+        app:backgroundTint="@color/royal_navy"
+        app:cornerRadius="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tenantCountTextView"
+        app:strokeColor="@color/royal_gold"
+        app:strokeWidth="1dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/viewTenantsButton"
+        android:layout_width="226dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="16dp"
+        android:letterSpacing="0.15"
+        android:text="VIEW TENANTS"
+        android:textColor="@color/royal_navy"
+        android:textStyle="bold"
+        app:backgroundTint="@android:color/transparent"
+        app:cornerRadius="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/addTenantButton"
+        app:strokeColor="@color/royal_gold"
+        app:strokeWidth="1.5dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
