@@ -23,7 +23,7 @@
         android:layout_width="48dp"
         android:layout_height="2dp"
         android:layout_marginStart="156dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="24dp"
         android:background="@color/royal_gold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/welcomeTextView" />
@@ -32,7 +32,7 @@
         android:id="@+id/overviewTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="48dp"
         android:fontFamily="serif"
         android:text="Here is an overview of your property"
         android:textColor="@color/ink_muted"

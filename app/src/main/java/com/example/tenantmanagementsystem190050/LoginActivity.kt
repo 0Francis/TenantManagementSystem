@@ -1,5 +1,6 @@
 package com.example.tenantmanagementsystem190050
 
+import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -50,7 +51,11 @@ class LoginActivity : AppCompatActivity() {
         // Implicit Intent: open a website
         binding.helpTextView.setOnClickListener {
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.strathmore.edu"))
-            startActivity(intent)
+            try {
+                startActivity(intent)
+            } catch (_: ActivityNotFoundException) {
+                Toast.makeText(this, "No browser application found", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 }
