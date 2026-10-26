@@ -45,8 +45,8 @@ class ViewTenantsFragment : Fragment() {
                 val intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:${newTenant.phone}"))
                 try {
                     startActivity(intent)
-                } catch (_: ActivityNotFoundException) {
-                    Toast.makeText(requireContext(), "No dialer application found", Toast.LENGTH_SHORT).show()
+                } catch (e: ActivityNotFoundException) {
+                    Toast.makeText(requireContext(), "No dialer available", Toast.LENGTH_SHORT).show()
                 }
             }
         }
