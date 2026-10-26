@@ -1,6 +1,7 @@
 package com.example.tenantmanagementsystem190050
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,17 +14,24 @@ class AddTenantFragment : Fragment() {
     private var _binding: FragmentAddTenantBinding? = null
     private val binding get() = _binding!!
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        Log.d("TENANT_LIFECYCLE", "   AddTenantFragment: onCreate")
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        Log.d("TENANT_LIFECYCLE", "   AddTenantFragment: onCreateView")
         _binding = FragmentAddTenantBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        Log.d("TENANT_LIFECYCLE", "   AddTenantFragment: onViewCreated")
 
         binding.saveButton.setOnClickListener {
             val name = binding.tenantNameEditText.text.toString().trim()
@@ -35,8 +43,8 @@ class AddTenantFragment : Fragment() {
                 binding.tenantNameEditText.error = "Tenant name is required"
                 valid = false
             }
-            if (phone.isBlank()) {
-                binding.phoneEditText.error = "Phone number is required"
+            if (phone.count { it.isDigit() } < 10) {
+                binding.phoneEditText.error = "Enter a valid phone number"
                 valid = false
             }
             if (rent.isBlank()) {
@@ -46,23 +54,46 @@ class AddTenantFragment : Fragment() {
             if (!valid) return@setOnClickListener
 
             val tenant = Tenant(name, phone, rent)
-
-            // Store it in the shared list
             TenantRepository.addTenant(tenant)
 
-            // Clear the form so it's fresh next time
             binding.tenantNameEditText.text.clear()
             binding.phoneEditText.text.clear()
             binding.rentEditText.text.clear()
 
-            findNavController().navigate(
-                AddTenantFragmentDirections.actionAddTenantFragmentToViewTenantsFragment(tenant)
-            )
+            val action = AddTenantFragmentDirections
+                .actionAddTenantFragmentToViewTenantsFragment(tenant)
+            findNavController().navigate(action)
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Log.d("TENANT_LIFECYCLE", "   AddTenantFragment: onStart")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d("TENANT_LIFECYCLE", "   AddTenantFragment: onResume")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d("TENANT_LIFECYCLE", "   AddTenantFragment: onPause")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d("TENANT_LIFECYCLE", "   AddTenantFragment: onStop")
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
+        Log.d("TENANT_LIFECYCLE", "   AddTenantFragment: onDestroyView")
         _binding = null
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d("TENANT_LIFECYCLE", "   AddTenantFragment: onDestroy")
     }
 }

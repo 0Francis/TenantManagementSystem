@@ -1,13 +1,19 @@
 package com.example.tenantmanagementsystem190050
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
+import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 import com.example.tenantmanagementsystem190050.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -23,23 +29,64 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Use our toolbar as the App Bar
         setSupportActionBar(binding.toolbar)
 
-        // For finding the NavController that lives inside the NavHost
-        val navHost = supportFragmentManager
+        val navHostFragment = supportFragmentManager
             .findFragmentById(R.id.navHostFragment) as NavHostFragment
-        navController = navHost.navController
+        navController = navHostFragment.navController
 
-        // Dashboard is the top level screen: no back arrow there
-        appBarConfiguration = AppBarConfiguration(setOf(R.id.dashboardFragment))
+        appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.dashboardFragment,
+                R.id.addTenantFragment,
+                R.id.viewTenantsFragment,
+                R.id.aboutFragment
+            ),
+            binding.drawerLayout
+        )
 
-        // Keeps the toolbar title and back arrow in sync with the current screen
         setupActionBarWithNavController(navController, appBarConfiguration)
+        binding.navView.setupWithNavController(navController)
+
+        binding.navView.setNavigationItemSelectedListener { item ->
+            if (item.itemId == R.id.action_logout) {
+                logout()
+            } else {
+                item.onNavDestinationSelected(navController)
+                binding.drawerLayout.closeDrawers()
+            }
+            true
+        }
+
+        val email = intent.getStringExtra("EMAIL")
+        val headerView = binding.navView.getHeaderView(0)
+        val headerEmailTextView = headerView.findViewById<TextView>(R.id.headerEmailTextView)
+        headerEmailTextView.text = email ?: "Signed in"
+    }
+
+
+    private fun logout() {
+        val intent = Intent(this, LoginActivity::class.java)
+        // Close every open screen, then start fresh on Login
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        startActivity(intent)
     }
 
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.action_logout) {
+            logout()
+            return true
+        }
+        return item.onNavDestinationSelected(navController) || super.onOptionsItemSelected(item)
     }
 
     override fun onStart() {

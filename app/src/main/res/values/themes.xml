@@ -5,5 +5,11 @@
         <item name="android:statusBarColor">@color/ivory</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:textColorHint">#9A927F</item>
+        <item name="colorSecondaryContainer">#EFE3BD</item>
+        <item name="colorOnSecondaryContainer">@color/royal_navy</item>
+    </style>
+
+    <style name="ThemeOverlay.TenantToolbar" parent="">
+        <item name="colorControlNormal">@color/royal_gold_light</item>
     </style>
 </resources>
