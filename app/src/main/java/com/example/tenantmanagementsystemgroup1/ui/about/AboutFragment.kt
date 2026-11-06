@@ -1,11 +1,11 @@
-package com.example.tenantmanagementsystem190050
+package com.example.tenantmanagementsystemgroup1.ui.about
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.tenantmanagementsystem190050.databinding.FragmentAboutBinding
+import com.example.tenantmanagementsystemgroup1.databinding.FragmentAboutBinding
 
 class AboutFragment : Fragment() {
 

@@ -3,7 +3,7 @@ plugins {
     id("androidx.navigation.safeargs.kotlin")
 }
 android {
-    namespace = "com.example.tenantmanagementsystem190050"
+    namespace = "com.example.tenantmanagementsystemgroup1"
     compileSdk {
         version = release(37)
     }
@@ -14,7 +14,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.example.tenantmanagementsystem190050"
+        applicationId = "com.example.tenantmanagementsystemgroup1"
         minSdk = 24
         targetSdk = 37
         versionCode = 1

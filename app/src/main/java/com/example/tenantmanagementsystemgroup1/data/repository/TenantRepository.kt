@@ -1,4 +1,5 @@
-package com.example.tenantmanagementsystem190050
+package com.example.tenantmanagementsystemgroup1.data.repository
+import com.example.tenantmanagementsystemgroup1.data.model.Tenant
 
 // An object, shared by the whole app. Will have one instance.
 object TenantRepository {

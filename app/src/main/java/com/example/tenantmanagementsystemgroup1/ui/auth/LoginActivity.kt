@@ -1,4 +1,4 @@
-package com.example.tenantmanagementsystem190050
+package com.example.tenantmanagementsystemgroup1.ui.auth
 
 import android.content.ActivityNotFoundException
 import android.content.Intent
@@ -6,7 +6,8 @@ import android.net.Uri
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.tenantmanagementsystem190050.databinding.ActivityLoginBinding
+import com.example.tenantmanagementsystemgroup1.databinding.ActivityLoginBinding
+import com.example.tenantmanagementsystemgroup1.ui.main.MainActivity
 
 class LoginActivity : AppCompatActivity() {
 

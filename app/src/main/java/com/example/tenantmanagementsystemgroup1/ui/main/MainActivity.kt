@@ -1,4 +1,4 @@
-package com.example.tenantmanagementsystem190050
+package com.example.tenantmanagementsystemgroup1.ui.main
 
 import android.content.Intent
 import android.os.Bundle
@@ -14,7 +14,9 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.example.tenantmanagementsystem190050.databinding.ActivityMainBinding
+import com.example.tenantmanagementsystemgroup1.databinding.ActivityMainBinding
+import com.example.tenantmanagementsystemgroup1.R
+import com.example.tenantmanagementsystemgroup1.ui.auth.LoginActivity
 
 class MainActivity : AppCompatActivity() {
 
