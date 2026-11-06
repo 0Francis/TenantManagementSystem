@@ -1,6 +1,6 @@
 # Tenant Management System
 
-An Android app for landlords to record tenants, see the total rent, and call a tenant. Built in Kotlin for **BBT 3.2 Mobile Application Development** (Strathmore University).
+This an Android app for landlords to record tenants, see the total rent, and call a tenant. Built in Kotlin for **BBT 3.2 Mobile Application Development Class** (Strathmore University).
 
 ## Features
 - Splash screen, registration and login
@@ -8,7 +8,7 @@ An Android app for landlords to record tenants, see the total rent, and call a t
 - Add a tenant (with validation) and view all tenants
 - Call a tenant from the app
 - Navigation drawer with logout
-
+- Nothing special
 ## Architecture
 ```
 ui/    Activities, Fragments and (from Stage 2) the ViewModel - the UI layer
@@ -46,3 +46,5 @@ app/src/main/java/com/example/tenantmanagementsystemgroup1/
 ## Run
 1. Open the project in Android Studio and sync Gradle.
 2. Run on an emulator or a connected phone.
+    
+**I'm constantly updating this depending on the groups speed on dev updates...**

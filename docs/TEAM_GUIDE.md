@@ -1,6 +1,7 @@
 # Team Guide
 
 How we work on this project. Follow these steps for every stage.
+But its nver that serious guys!
 
 ## Golden rules
 1. Never push straight to `main`. Work on a branch and open a pull request.
