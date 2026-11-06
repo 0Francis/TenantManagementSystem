@@ -11,26 +11,26 @@ An Android app for landlords to record tenants, see the total rent, and call a t
 
 ## Architecture
 ```
-ui/    Activities, Fragments and (from Stage 2) the ViewModel â€” the UI layer
-data/  Tenant and TenantRepository â€” the data layer
+ui/    Activities, Fragments and (from Stage 2) the ViewModel - the UI layer
+data/  Tenant and TenantRepository - the data layer
 ```
 Tenants are currently stored in memory by `TenantRepository`.
 
 ## Structure
 ```
 app/src/main/java/com/example/tenantmanagementsystemgroup1/
-â”œâ”€â”€ ui/
-â”‚   â”œâ”€â”€ splash/     SplashActivity
-â”‚   â”œâ”€â”€ auth/       LoginActivity, RegisterActivity
-â”‚   â”œâ”€â”€ main/       MainActivity
-â”‚   â”œâ”€â”€ dashboard/  DashboardFragment
-â”‚   â”œâ”€â”€ tenants/    AddTenantFragment, ViewTenantsFragment
-â”‚   â”œâ”€â”€ about/      AboutFragment
-â”‚   â””â”€â”€ viewmodel/  (added in Stage 2)
-â””â”€â”€ data/
-    â”œâ”€â”€ model/      Tenant
-    â”œâ”€â”€ local/      (added in Stage 3)
-    â””â”€â”€ repository/ TenantRepository
+  ui/
+    splash/      SplashActivity
+    auth/        LoginActivity, RegisterActivity
+    main/        MainActivity
+    dashboard/   DashboardFragment
+    tenants/     AddTenantFragment, ViewTenantsFragment
+    about/       AboutFragment
+    viewmodel/   (added in Stage 2)
+  data/
+    model/       Tenant
+    local/       (added in Stage 3)
+    repository/  TenantRepository
 ```
 
 ## Tech
