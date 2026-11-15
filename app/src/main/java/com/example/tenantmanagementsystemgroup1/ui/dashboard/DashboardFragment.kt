@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.tenantmanagementsystemgroup1.databinding.FragmentDashboardBinding
 import com.example.tenantmanagementsystemgroup1.R
-import com.example.tenantmanagementsystemgroup1.data.repository.TenantRepository
+
 import androidx.fragment.app.activityViewModels
 import com.example.tenantmanagementsystemgroup1.ui.viewmodel.TenantViewModel
 
