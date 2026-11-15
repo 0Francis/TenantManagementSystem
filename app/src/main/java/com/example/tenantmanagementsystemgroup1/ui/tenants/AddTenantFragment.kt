@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.tenantmanagementsystemgroup1.databinding.FragmentAddTenantBinding
 import com.example.tenantmanagementsystemgroup1.data.model.Tenant
-import com.example.tenantmanagementsystemgroup1.data.repository.TenantRepository
+
 import androidx.fragment.app.activityViewModels
 import com.example.tenantmanagementsystemgroup1.ui.viewmodel.TenantViewModel
 class AddTenantFragment : Fragment() {
