@@ -27,11 +27,11 @@ class RegisterActivity : AppCompatActivity() {
 
             Toast.makeText(this, "Account created. Please log in.", Toast.LENGTH_SHORT).show()
 
-            // Explicit Intent carrying data back to Login
             val intent = Intent(this, LoginActivity::class.java)
             intent.putExtra("EMAIL", email)
-            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
             startActivity(intent)
+            finish()
         }
 
         // Register was opened from Login, so just close it to reveal Login again

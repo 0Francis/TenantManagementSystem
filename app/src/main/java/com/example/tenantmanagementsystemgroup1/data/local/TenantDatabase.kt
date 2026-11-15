@@ -8,7 +8,8 @@ import com.example.tenantmanagementsystemgroup1.data.model.Tenant
 
 @Database(
     entities = [Tenant::class],
-    version = 1
+    version = 1,
+    exportSchema = false
 )
 abstract class TenantDatabase : RoomDatabase() {
 
@@ -21,15 +22,16 @@ abstract class TenantDatabase : RoomDatabase() {
 
         fun getDatabase(context: Context): TenantDatabase {
             return INSTANCE ?: synchronized(this) {
-
-                val database = Room.databaseBuilder(
+                val instance = Room.databaseBuilder(
                     context.applicationContext,
                     TenantDatabase::class.java,
                     "tenant_database"
-                ).build()
+                )
+                .fallbackToDestructiveMigration(true)
+                .build()
 
-                INSTANCE = database
-                database
+                INSTANCE = instance
+                instance
             }
         }
     }

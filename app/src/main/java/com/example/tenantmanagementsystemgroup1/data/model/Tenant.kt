@@ -15,7 +15,12 @@ data class Tenant(
 
 ) : Serializable {
 
+    fun getFormattedRent(): String {
+        val amount = rent.replace(",", "").toDoubleOrNull() ?: 0.0
+        return "KSh %,.0f".format(amount)
+    }
+
     fun summary(): String {
-        return "Tenant: $name\nPhone: $phone\nRent: KSh $rent"
+        return "Tenant: $name\nPhone: $phone\nRent: ${getFormattedRent()}"
     }
 }

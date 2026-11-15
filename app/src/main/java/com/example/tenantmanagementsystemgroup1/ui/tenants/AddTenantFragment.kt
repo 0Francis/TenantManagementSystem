@@ -40,24 +40,28 @@ class AddTenantFragment : Fragment() {
         Log.d("TENANT_LIFECYCLE", "   AddTenantFragment: onViewCreated")
 
         binding.saveButton.setOnClickListener {
+            val name = binding.tenantNameEditText.text.toString().trim()
+            val phone = binding.phoneEditText.text.toString().trim()
+            val rentStr = binding.rentEditText.text.toString().trim()
 
-            // UI JOB: collect the input. The ViewModel trims, checks and saves it
-            val tenant = viewModel.addTenant(
-                binding.tenantNameEditText.text.toString(),
-                binding.phoneEditText.text.toString(),
-                binding.rentEditText.text.toString()
-            )
-
-            // null = rejected. UI JOB: tell the user
-            if (tenant == null) {
+            if (name.isEmpty() || phone.isEmpty() || rentStr.isEmpty()) {
                 Toast.makeText(requireContext(), "Please fill in all fields", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            // UI JOB: navigate with Safe Args (unchanged)
-            val action = AddTenantFragmentDirections
-                .actionAddTenantFragmentToViewTenantsFragment(tenant)
-            findNavController().navigate(action)
+            val rentVal = rentStr.replace(",", "").toDoubleOrNull()
+            if (rentVal == null || rentVal <= 0) {
+                Toast.makeText(requireContext(), "Please enter a valid positive rent amount", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            val tenant = viewModel.addTenant(name, phone, rentStr)
+            if (tenant != null) {
+                Toast.makeText(requireContext(), "Tenant saved successfully!", Toast.LENGTH_SHORT).show()
+                val action = AddTenantFragmentDirections
+                    .actionAddTenantFragmentToViewTenantsFragment(tenant)
+                findNavController().navigate(action)
+            }
         }
     }
 

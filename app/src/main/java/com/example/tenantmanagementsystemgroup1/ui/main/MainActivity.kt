@@ -51,13 +51,23 @@ class MainActivity : AppCompatActivity() {
         binding.navView.setupWithNavController(navController)
 
         binding.navView.setNavigationItemSelectedListener { item ->
-            if (item.itemId == R.id.action_logout) {
-                logout()
-            } else {
-                item.onNavDestinationSelected(navController)
-                binding.drawerLayout.closeDrawers()
+            val handled = when (item.itemId) {
+                R.id.action_logout -> {
+                    logout()
+                    true
+                }
+                R.id.dashboardFragment -> {
+                    if (navController.currentDestination?.id != R.id.dashboardFragment) {
+                        navController.popBackStack(R.id.dashboardFragment, false)
+                    }
+                    true
+                }
+                else -> {
+                    item.onNavDestinationSelected(navController)
+                }
             }
-            true
+            binding.drawerLayout.closeDrawers()
+            handled
         }
 
         val email = intent.getStringExtra("EMAIL")

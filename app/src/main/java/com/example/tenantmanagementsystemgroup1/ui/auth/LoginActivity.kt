@@ -60,4 +60,13 @@ class LoginActivity : AppCompatActivity() {
             }
         }
     }
+
+    override fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
+        setIntent(intent)
+        val registeredEmail = intent.getStringExtra("EMAIL")
+        if (!registeredEmail.isNullOrEmpty()) {
+            binding.emailEditText.setText(registeredEmail)
+        }
+    }
 }

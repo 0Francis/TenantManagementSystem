@@ -1,50 +1,101 @@
 # Tenant Management System
 
-This an Android app for landlords to record tenants, see the total rent, and call a tenant. Built in Kotlin for **BBT 3.2 Mobile Application Development Class** (Strathmore University).
+An Android application for landlords to record tenants, view property overview and total rent calculations, and call tenants directly. Built in Kotlin for **BBT 3.2 Mobile Application Development Class** at Strathmore University.
+
+---
+
+## Architecture
+
+The project follows modern Android **MVVM (Model-View-ViewModel)** and **Repository** architectural patterns:
+
+```
++-------------------------------------------------------------------------+
+|                                UI LAYER                                 |
+|   Activities (SplashActivity, LoginActivity, RegisterActivity, Main)    |
+|   Fragments (DashboardFragment, AddTenantFragment, ViewTenantsFragment) |
++-------------------------------------------------------------------------+
+                                    │
+                                    ▼
++-------------------------------------------------------------------------+
+|                            VIEWMODEL LAYER                              |
+|   TenantViewModel (LiveData Transformations, Coroutines, State)        |
++-------------------------------------------------------------------------+
+                                    │
+                                    ▼
++-------------------------------------------------------------------------+
+|                               DATA LAYER                                |
+|   TenantRepository (Single Source of Truth)                            |
+|   TenantDatabase & TenantDao (Room SQLite Database Engine)              |
+|   Tenant Data Model Entity                                             |
++-------------------------------------------------------------------------+
+```
+
+---
 
 ## Features
-- Splash screen, registration and login
-- Dashboard with the number of tenants and the total rent
-- Add a tenant (with validation) and view all tenants
-- Call a tenant from the app
-- Navigation drawer with logout
-- Nothing special
-## Architecture
-```
-ui/    Activities, Fragments and (from Stage 2) the ViewModel - the UI layer
-data/  Tenant and TenantRepository - the data layer
-```
-Tenants are currently stored in memory by `TenantRepository`.
+- **Simple Input Validation & Onboarding:** Animated Splash Screen, User Registration, and Login flow.
+- **Dashboard Overview:** Displays live total tenant counts and aggregated total rent paid.
+- **Tenant Management:** Form for adding new tenants with data validation and phone/rent formatting.
+- **Tenant Directory:** View all saved tenants with direct single-tap phone dialer integration.
+- **Navigation Drawer:** Seamless navigation between Dashboard, Add Tenant, View Tenants, About screen, and Logout.
+- **Room SQLite Persistence:** Asynchronous Room Database integration for offline data storage.
+- **Automated Testing:** Instrumented Unit Tests & System/Integration Tests for Room Database verification.
+- **As Instructed**
+
+---
+
+## Team Members & Contributions
+
+| Stage | Name | Admission No | Branch | PR Link | Role / Responsibility |
+|---|---|---|---|---|---|
+| Stage 1 | Francis Wainaina | 190050 | `main` | [Direct Commit](https://github.com/0Francis/TenantManagementSystem) | Project Setup & Navigation Graph |
+| Stage 2 | Shana Githu | 186888 | `feature/viewmodel` | [PR #2](https://github.com/0Francis/TenantManagementSystem/pull/1) | ViewModel & LiveData Architecture |
+| Stage 3 | Steve Luyo | 190277 | `feature/room` | [PR #3](https://github.com/0Francis/TenantManagementSystem/pull/2) | Room Database Entity & DAO |
+| Stage 4 | Shana Githu | 186888 | `feature/screens` | [PR #4](https://github.com/0Francis/TenantManagementSystem/pull/3) | UI Fragment Screens & Layouts |
+| Stage 5 | Daniella Wasike | 179201 | `feature/data-integration` | [PR #5](https://github.com/0Francis/TenantManagementSystem/pull/4) | Data Integration & SafeArgs Passing |
+| Stage 6 | Frank | 190050 | `release/v1.1` | [Direct Commit](https://github.com/0Francis/TenantManagementSystem) | Diagnostics, Optimization & Testing |
+
+---
 
 ## Structure
 ```
 app/src/main/java/com/example/tenantmanagementsystemgroup1/
-  ui/
-    splash/      SplashActivity
-    auth/        LoginActivity, RegisterActivity
-    main/        MainActivity
-    dashboard/   DashboardFragment
-    tenants/     AddTenantFragment, ViewTenantsFragment
-    about/       AboutFragment
-    viewmodel/   (added in Stage 2)
-  data/
-    model/       Tenant
-    local/       (added in Stage 3)
-    repository/  TenantRepository
+  ├── data/
+  │   ├── local/        TenantDao.kt, TenantDatabase.kt
+  │   ├── model/        Tenant.kt
+  │   └── repository/   TenantRepository.kt
+  └── ui/
+      ├── about/        AboutFragment.kt
+      ├── auth/         LoginActivity.kt, RegisterActivity.kt
+      ├── dashboard/    DashboardFragment.kt
+      ├── main/         MainActivity.kt
+      ├── splash/       SplashActivity.kt
+      ├── tenants/      AddTenantFragment.kt, ViewTenantsFragment.kt
+      └── viewmodel/    TenantViewModel.kt
+
+app/src/androidTest/java/com/example/tenantmanagementsystemgroup1/
+  ├── data/
+  │   ├── local/        TenantDaoUnitTest.kt (Instrumented Unit Test)
+  │   └──               TenantDatabaseSystemTest.kt (System / Integration Test)
+  └── util/             LiveDataTestUtil.kt
 ```
 
-## Tech
+---
+
+## Tech Stack & Dependencies
 | Area | Choice |
 |---|---|
 | Language | Kotlin |
-| UI | XML with ConstraintLayout |
+| UI Architecture | Material Components + ConstraintLayout |
 | Binding | View Binding + Data Binding |
-| Navigation | Navigation Component + Safe Args |
-| Build | Gradle (Kotlin DSL) |
+| Navigation | Jetpack Navigation Component + Safe Args |
+| Local Database | Room Database (Runtime + KSP Compiler) |
+| Architecture | ViewModel, LiveData, Kotlin Coroutines |
 | Min / Target SDK | 24 / 37 |
 
-## Run
-1. Open the project in Android Studio and sync Gradle.
-2. Run on an emulator or a connected phone.
-    
-**I'm constantly updating this depending on the groups speed on dev updates...**
+---
+
+## How to Run
+1. Open the project in **Android Studio**.
+2. Sync Gradle files (`File` > `Sync Project with Gradle Files`).
+3. Run on an Android Emulator or connected physical Android device.
